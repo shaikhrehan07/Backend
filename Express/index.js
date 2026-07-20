@@ -36,3 +36,8 @@ app.get("/:username/:id",(req,res)=>{
     let{username,id}=req.params;
     res.send(`Welcome to the user @${username}`)
 })
+
+app.get("/search",(req,res)=>{
+    let{q}=req.query;
+    res.send(`this are the search results for query: ${q} `);
+})
