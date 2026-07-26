@@ -6,7 +6,10 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Press ctl + R and you get Random Number:
+    <h1>Dice gave you random number:
         <%= demo   %> </h1>
+        <% if(demo==6){ %>
+            <h2>Nice roll again </h2>
+       <% } %>
 </body>
 </html>

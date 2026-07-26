@@ -15,9 +15,16 @@ app.get("/game",(req,res)=>{
     let demo=Math.floor(Math.random() * 6)+1;
     res.render("game",{demo})
 })
-app.get("/insta:username",(req,res)=>{
-    let {username}=req.params;
-    res.render("instagram",{username});
+app.get("/insta/:username",(req,res)=>{
+    const {username}=req.params;
+    const InstaData=require("./data.json")
+    const data=InstaData[username];
+    console.log(data)
+    if (!data) {
+        return res.send("Profile not found");
+    }
+    res.render("instagram.ejs",{data});
+    
 })
 const port=3000;
 app.listen(port,()=>{
